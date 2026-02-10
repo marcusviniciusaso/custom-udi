@@ -3,11 +3,9 @@
 ## Build image
 
 ```
-cd image
-
 podman login registry.redhat.io
 
-podman-compose --env-file .env build
+podman-compose -f image/compose.yaml --env-file .env build
 ```
 
 *Teste*
@@ -23,4 +21,12 @@ podman run --rm -it quay.io/${QUAY_ORG}/${IMAGE_NAME}:${IMAGE_TAG} bash -lc '
   cekit --version || true
   podman version
 '
+```
+
+## Push to Quay
+
+```
+podman login quay.io
+
+podman-compose -f image/compose.yaml --env-file .env push
 ```
