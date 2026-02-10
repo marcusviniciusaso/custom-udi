@@ -1,0 +1,11 @@
+services:
+  udi-extended:
+    build:
+      context: .
+      dockerfile: Containerfile
+      args:
+        UDI_IMAGE: ${UDI_IMAGE}
+        OCP_VERSION: ${OCP_VERSION}
+        HELM_VERSION: ${HELM_VERSION}
+        KIND_VERSION: ${KIND_VERSION}
+    image: quay.io/${QUAY_ORG}/${IMAGE_NAME}:${IMAGE_TAG}
