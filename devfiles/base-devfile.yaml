@@ -1,0 +1,36 @@
+schemaVersion: 2.2.0
+metadata:
+  name: custom-base-udi
+  displayName: "Custom Base UDI(Dev Spaces 3.22)"
+  description: "Container com tools baseado na UDI com az/kubectl/helm/oc/cekit/kind/podman..."
+  version: 1.0.0
+  tags: ["openshift", "kubernetes", "helm", "podman", "azure"]
+components:
+  - name: tools
+    container:
+      image: quay.io/marolive/custom-udi:1.0.0
+      mountSources: true
+      sourceMapping: /projects
+      command: ["bash", "-lc", "sleep infinity"]
+      memoryLimit: 4Gi
+      cpuLimit: "2"
+commands:
+  - id: verify
+    exec:
+      component: tools
+      commandLine: |
+        set -euo pipefail
+        echo "== /etc/devspaces-linux-release ==" && cat /etc/devspaces-linux-release
+        echo "== oc/kubectl/helm/az/podman ==" 
+        oc version --client
+        kubectl version --client
+        helm version
+        az version | head -n 30
+        podman version
+      workingDir: /projects
+      group:
+        kind: run
+        isDefault: true
+events:
+  postStart:
+    - verify
