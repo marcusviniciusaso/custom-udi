@@ -9,7 +9,7 @@ attributes:
   pod-overrides:
     metadata:
       annotations:
-        io.kubernetes.cri-o.Devices: "/dev/fuse"
+        io.kubernetes.cri-o.Devices: "/dev/fuse,/dev/net/tun"
 components:
   - name: tools
     container:
