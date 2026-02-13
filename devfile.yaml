@@ -30,9 +30,6 @@ components:
           name: kubedock
           protocol: tcp
           targetPort: 2475
-      securityContext:
-        privileged: true
-        allowPrivilegeEscalation: true
 commands:
   - id: verify
     exec:
