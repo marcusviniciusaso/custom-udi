@@ -24,7 +24,7 @@ components:
           value: "--reverse-proxy --kubeconfig /home/user/.kube/config --initimage quay.io/agiertli/kubedock:0.13.0"
         - name: KUBEDOCK_ENABLED
           value: 'true'
-        - name: CONTAINER_HOST
+        - name: DOCKER_HOST
           value: 'tcp://127.0.0.1:2475'
         - name: TESTCONTAINERS_RYUK_DISABLED
           value: 'true'
