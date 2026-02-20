@@ -30,3 +30,9 @@ podman login quay.io
 
 podman-compose -f image/compose.yaml --env-file .env push
 ```
+
+## Configure Repository
+
+```
+oc apply -f public-yum-central-secret.yaml
+```
