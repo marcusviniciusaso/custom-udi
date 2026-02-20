@@ -119,7 +119,7 @@ RUN set -euo pipefail; \
     cat > /etc/devspaces-linux-release <<'EOF'
 devspaces_distro:
   type: base
-  version: "1.1.0"
+  version: "1.1.1"
   release_date: "2026-02-20"
 os:
   name: "Red Hat Enterprise Linux"
@@ -129,7 +129,7 @@ RUN chmod 0644 /etc/devspaces-linux-release
 
 # ---- Repositories ----
 # ---- public-yum-central ----
-RUN cat <<EOF > /etc/yum.repos.d/nexus-repo.repo
+RUN cat <<EOF > /etc/yum.repos.d/nexus-repo
 [nexus-interno]
 name=Repositorio Interno Nexus
 baseurl=NEXUS_BASEURL_PLACEHOLDER
@@ -139,13 +139,13 @@ sslverify=0
 priority=1
 EOF
 
-RUN chmod 666 /etc/yum.repos.d/nexus-repo.repo
+RUN chmod 666 /etc/yum.repos.d/nexus-repo
 
 LABEL org.opencontainers.image.title="Dev Spaces Custom UDI" \
       org.opencontainers.image.description="UDI customizada para Dev Spaces 3.22" \
       org.opencontainers.image.source="https://github.com/marcusviniciusaso/custom-udi" \
       org.opencontainers.image.vendor="Red Hat (sample)" \
-      org.opencontainers.image.version="1.1.0"
+      org.opencontainers.image.version="1.1.1"
 
 USER 10001
 
