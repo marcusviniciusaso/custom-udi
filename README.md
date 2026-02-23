@@ -36,5 +36,5 @@ podman-compose -f image/compose.yaml --env-file image/.env push
 Apply to user workspace namespace
 
 ```
-oc apply -f public-yum-central-secret.yaml
+oc apply -f repositories-secret.yaml
 ```
