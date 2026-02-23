@@ -5,10 +5,10 @@
 ```
 podman login registry.redhat.io
 
-podman-compose -f image/compose.yaml --env-file .env build
+podman-compose -f image/compose.yaml --env-file image/.env build
 ```
 
-*Teste*
+## Test
 
 ```
 podman run --rm -it quay.io/${QUAY_ORG}/${IMAGE_NAME}:${IMAGE_TAG} bash -lc '
@@ -28,7 +28,7 @@ podman run --rm -it quay.io/${QUAY_ORG}/${IMAGE_NAME}:${IMAGE_TAG} bash -lc '
 ```
 podman login quay.io
 
-podman-compose -f image/compose.yaml --env-file .env push
+podman-compose -f image/compose.yaml --env-file image/.env push
 ```
 
 ## Configure Repository
